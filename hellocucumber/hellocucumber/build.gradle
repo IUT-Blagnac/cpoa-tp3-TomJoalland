@@ -20,12 +20,6 @@ dependencies {
     testImplementation 'junit:junit:4.13'
 }
 
-configurations {
-    cucumberRuntime {
-        extendsFrom testImplementation
-    }
-}
-
 group = 'hellocucumber'
 version = '1.0.0-SNAPSHOT'
 description = 'hellocucumber'
@@ -41,6 +35,12 @@ publishing {
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
+}
+
+configurations {
+    cucumberRuntime {
+        extendsFrom testImplementation
+    }
 }
 
 task cucumber() {
