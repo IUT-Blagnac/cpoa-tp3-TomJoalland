@@ -1,7 +1,7 @@
-package Main;
+package main;
 
 import FabriqueAbstract.Pizzeria;
-import FabriquePizza.PizzeriaFabrique;
+import FabriquePizza.PizzeriaFactory;
 import ProduitAbtrait.Pizza;
 
 public class PizzaTestDrive {
