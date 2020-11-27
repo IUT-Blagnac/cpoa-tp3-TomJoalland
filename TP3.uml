@@ -106,6 +106,4 @@ PizzeriaFabriqueBrest : -PizzeriaFabriqueBrest()
 PizzeriaFabriqueBrest : +PizzeriaFabriqueBrest getInstance()
 PizzeriaFabriqueBrest : +Pizza creerPizza(String name)
 
-
-
 @enduml
