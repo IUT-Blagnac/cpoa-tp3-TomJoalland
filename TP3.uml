@@ -1,0 +1,111 @@
+@startuml
+
+' definitions
+' -----------
+!include config.cfg
+
+' package ""
+abstract Pizza
+abstract Pizzeria
+abstract PizzaFabrique
+class PizzeriaBrest
+class PizzeriaStrasbourg
+class PizzeriaFabrique
+class PizzeriaFabriqueBrest
+class PizzeriaFabriqueStrasbourg
+class PizzaCheeseStyleBrest
+class PizzaCheeseStyleStrasbourg
+class PizzaPoivronStyleBrest
+class PizzaPoivronStyleStrasbourg
+class PizzaGrecqueStyleBrest
+class PizzaGrecqueStyleStrasbourg
+class PizzaTestDrive
+' end package
+
+Pizza  <|-- "PizzaCheeseStyleBrest" 
+Pizza  <|-- "PizzaCheeseStyleStrasbourg"
+Pizza  <|-- "PizzaPoivronStyleBrest" 
+Pizza  <|-- "PizzaPoivronStyleStrasbourg"
+Pizza  <|-- "PizzaGrecqueStyleBrest" 
+Pizza  <|-- "PizzaGrecqueStyleStrasbourg"
+Pizzeria --> PizzaFabrique 
+Pizzeria ..> Pizza
+Pizzeria <|-- PizzeriaBrest
+Pizzeria <|-- PizzeriaStrasbourg
+Pizzeria <.. PizzeriaFabrique 
+PizzaTestDrive ..> Pizza
+PizzaTestDrive ..> PizzeriaFabrique  
+PizzaFabrique ..> Pizza
+PizzaFabrique <|-- PizzeriaFabriqueBrest
+PizzaFabrique <|-- PizzeriaFabriqueStrasbourg
+' content
+' -------
+
+' Pizza:
+Pizza : #String name
+Pizza : #String pate 
+Pizza : #String sauce
+Pizza : #ArrayList garnitures
+Pizza : +void preparer()
+Pizza : +void cuire()
+Pizza : +void couper()
+Pizza : +void emballer()
+Pizza : +void getNom()
+
+
+' PizzaCheeseStyleStrasbourg:
+PizzaCheeseStyleStrasbourg : +PizzaCheeseStyleStrasbourg()
+
+' PizzaCheeseStyleBrest:
+PizzaCheeseStyleBrest : +PizzaCheeseStyleBrest()
+
+' PizzaPoivronStyleStrasbourg:
+PizzaPoivronStyleStrasbourg : +PizzaPoivronStyleStrasbourg()
+
+' PizzaPoivronStyleBrest:
+PizzaPoivronStyleBrest : +PizzaPoivronStyleBrest()
+
+' PizzaGrecqueStyleStrasbourg:
+PizzaGrecqueStyleStrasbourg : +PizzaGrecqueStyleStrasbourg()
+
+' PizzaGrecqueStyleBrest:
+PizzaGrecqueStyleBrest : +PizzaGrecqueStyleBrest()
+
+'PizzaTestDrive:
+PizzaTestDrive : +void main(String[] args)
+
+'PizzeriaFabrique:
+PizzeriaFabrique : ~PizzeriaFabrique uniqueInstance
+PizzeriaFabrique : -PizzeriaFabrique()
+PizzeriaFabrique : +PizzeriaFabrique getInstance()
+PizzeriaFabrique : +Pizzeria creerPizza(String name)
+
+'Pizzeria:
+Pizzeria : +Pizza commanderPizza(String type)
+Pizzeria : +Pizzeria(PizzaFabrique pizzaFabrique)
+Pizzeria : #Pizza creerPizza(String type)
+
+'PizzaFabrique:
+PizzaFabrique : +Pizza creerPizza(String name)
+
+'PizzeriaStrasbourg:
+PizzeriaStrasbourg : +PizzeriaStrasbourg()
+
+'PizzeriaBrest:
+PizzeriaBrest : PizzeriaBrest()
+
+'PizzeriaFabriqueStrasbourg:
+PizzeriaFabriqueStrasbourg : ~PizzeriaFabriqueStrasbourg uniqueInstance
+PizzeriaFabriqueStrasbourg : -PizzeriaFabriqueStrasbourg()
+PizzeriaFabriqueStrasbourg : +PizzeriaFabriqueStrasbourg getInstance()
+PizzeriaFabriqueStrasbourg : +Pizza creerPizza(String name)
+
+'PizzeriaFabriqueBrest:
+PizzeriaFabriqueBrest : ~PizzeriaFabriqueBrest uniqueInstance
+PizzeriaFabriqueBrest : -PizzeriaFabriqueBrest()
+PizzeriaFabriqueBrest : +PizzeriaFabriqueBrest getInstance()
+PizzeriaFabriqueBrest : +Pizza creerPizza(String name)
+
+
+
+@enduml
