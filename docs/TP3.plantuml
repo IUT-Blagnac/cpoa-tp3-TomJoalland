@@ -28,7 +28,7 @@ Pizza  <|-- "PizzaPoivronStyleBrest"
 Pizza  <|-- "PizzaPoivronStyleStrasbourg"
 Pizza  <|-- "PizzaGrecqueStyleBrest" 
 Pizza  <|-- "PizzaGrecqueStyleStrasbourg"
-Pizzeria --> PizzaFactory 
+Pizzeria o--> "1" PizzaFactory 
 Pizzeria ..> Pizza
 Pizzeria <|-- PizzeriaBrest
 Pizzeria <|-- PizzeriaStrasbourg
