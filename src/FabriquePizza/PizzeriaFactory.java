@@ -4,17 +4,17 @@ import Fabrique.PizzeriaBrest;
 import Fabrique.PizzeriaStrasbourg;
 import FabriqueAbstract.Pizzeria;
 
-public class PizzeriaFabrique {
+public class PizzeriaFactory {
 
-	private static PizzeriaFabrique uniqueInstance;
+	private static PizzeriaFactory uniqueInstance;
 	
-	private PizzeriaFabrique() {
+	private PizzeriaFactory() {
 		
 	}
 	
-	public static PizzeriaFabrique getInstance() {
+	public static PizzeriaFactory getInstance() {
 		if(uniqueInstance == null) {
-			uniqueInstance = new PizzeriaFabrique();
+			uniqueInstance = new PizzeriaFactory();
 		}
 		return uniqueInstance;
 	}

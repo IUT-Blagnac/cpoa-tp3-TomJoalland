@@ -1,22 +1,22 @@
 package FabriquePizza;
 
-import Fabrique.PizzaFabrique;
+import Fabrique.PizzaFactory;
 import Produit.PizzaCheeseStyleBrest;
 import Produit.PizzaGrecqueStyleBrest;
 import Produit.PizzaPoivronStyleBrest;
 import ProduitAbtrait.Pizza;
 
-public class FabriquePizzaBrest extends PizzaFabrique{
+public class PizzaBrestFactory extends PizzaFactory {
 
-	private static FabriquePizzaBrest uniqueInstance;
+	private static PizzaBrestFactory uniqueInstance;
 	
-	private FabriquePizzaBrest() {
+	private PizzaBrestFactory() {
 		
 	}
 	
-	public static FabriquePizzaBrest getInstance() {
+	public static PizzaBrestFactory getInstance() {
 		if(uniqueInstance == null) {
-			uniqueInstance = new FabriquePizzaBrest();
+			uniqueInstance = new PizzaBrestFactory();
 		}
 		return uniqueInstance;
 	}

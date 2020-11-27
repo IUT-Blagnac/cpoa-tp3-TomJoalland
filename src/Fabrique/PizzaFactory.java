@@ -4,7 +4,7 @@ import Produit.PizzaCheeseStyleBrest;
 import Produit.PizzaPoivronStyleBrest;
 import Produit.PizzaGrecqueStyleBrest;
 
-public abstract class PizzaFabrique {
+public abstract class PizzaFactory {
 	public Pizza creerPizza(String type) {
 		Pizza pizza = null;
 		if (type.equals("fromage")) {
