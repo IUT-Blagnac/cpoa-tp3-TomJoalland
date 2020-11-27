@@ -7,12 +7,12 @@
 ' package ""
 abstract class Pizza
 abstract class Pizzeria
-abstract class PizzaFabrique
+abstract class PizzaFactory
 class PizzeriaBrest
 class PizzeriaStrasbourg
-class PizzeriaFabrique
-class PizzeriaFabriqueBrest
-class PizzeriaFabriqueStrasbourg
+class PizzeriaFactory
+class PizzeriaBrest
+class PizzeriaStrasbourg
 class PizzaCheeseStyleBrest
 class PizzaCheeseStyleStrasbourg
 class PizzaPoivronStyleBrest
@@ -28,16 +28,16 @@ Pizza  <|-- "PizzaPoivronStyleBrest"
 Pizza  <|-- "PizzaPoivronStyleStrasbourg"
 Pizza  <|-- "PizzaGrecqueStyleBrest" 
 Pizza  <|-- "PizzaGrecqueStyleStrasbourg"
-Pizzeria --> PizzaFabrique 
+Pizzeria --> PizzaFactory 
 Pizzeria ..> Pizza
 Pizzeria <|-- PizzeriaBrest
 Pizzeria <|-- PizzeriaStrasbourg
-Pizzeria <.. PizzeriaFabrique 
+Pizzeria <.. PizzeriaFactory 
 PizzaTestDrive ..> Pizza
-PizzaTestDrive ..> PizzeriaFabrique  
-PizzaFabrique ..> Pizza
-PizzaFabrique <|-- PizzeriaFabriqueBrest
-PizzaFabrique <|-- PizzeriaFabriqueStrasbourg
+PizzaTestDrive ..> PizzeriaFactory  
+PizzaFactory ..> Pizza
+PizzaFactory <|-- PizzeriaBrest
+PizzaFactory <|-- PizzeriaStrasbourg
 ' content
 ' -------
 
@@ -74,19 +74,19 @@ PizzaGrecqueStyleBrest : +PizzaGrecqueStyleBrest()
 'PizzaTestDrive:
 PizzaTestDrive : +void main(String[] args)
 
-'PizzeriaFabrique:
-PizzeriaFabrique : ~PizzeriaFabrique uniqueInstance
-PizzeriaFabrique : -PizzeriaFabrique()
-PizzeriaFabrique : +PizzeriaFabrique getInstance()
-PizzeriaFabrique : +Pizzeria creerPizza(String name)
+'PizzeriaFactory:
+PizzeriaFactory : ~PizzeriaFactory uniqueInstance
+PizzeriaFactory : -PizzeriaFactory()
+PizzeriaFactory : +PizzeriaFactory getInstance()
+PizzeriaFactory : +Pizzeria creerPizza(String name)
 
 'Pizzeria:
 Pizzeria : +Pizza commanderPizza(String type)
-Pizzeria : +Pizzeria(PizzaFabrique pizzaFabrique)
+Pizzeria : +Pizzeria(PizzaFactory pizzaFactory)
 Pizzeria : #Pizza creerPizza(String type)
 
-'PizzaFabrique:
-PizzaFabrique : +Pizza creerPizza(String name)
+'PizzaFactory:
+PizzaFactory : +Pizza creerPizza(String name)
 
 'PizzeriaStrasbourg:
 PizzeriaStrasbourg : +PizzeriaStrasbourg()
@@ -94,17 +94,17 @@ PizzeriaStrasbourg : +PizzeriaStrasbourg()
 'PizzeriaBrest:
 PizzeriaBrest : PizzeriaBrest()
 
-'PizzeriaFabriqueStrasbourg:
-PizzeriaFabriqueStrasbourg : ~PizzeriaFabriqueStrasbourg uniqueInstance
-PizzeriaFabriqueStrasbourg : -PizzeriaFabriqueStrasbourg()
-PizzeriaFabriqueStrasbourg : +PizzeriaFabriqueStrasbourg getInstance()
-PizzeriaFabriqueStrasbourg : +Pizza creerPizza(String name)
+'PizzeriaStrasbourg:
+PizzeriaStrasbourg : ~PizzeriaStrasbourg uniqueInstance
+PizzeriaStrasbourg : -PizzeriaStrasbourg()
+PizzeriaStrasbourg : +PizzeriaStrasbourg getInstance()
+PizzeriaStrasbourg : +Pizza creerPizza(String name)
 
-'PizzeriaFabriqueBrest:
-PizzeriaFabriqueBrest : ~PizzeriaFabriqueBrest uniqueInstance
-PizzeriaFabriqueBrest : -PizzeriaFabriqueBrest()
-PizzeriaFabriqueBrest : +PizzeriaFabriqueBrest getInstance()
-PizzeriaFabriqueBrest : +Pizza creerPizza(String name)
+'PizzeriaBrest:
+PizzeriaBrest : ~PizzeriaBrest uniqueInstance
+PizzeriaBrest : -PizzeriaBrest()
+PizzeriaBrest : +PizzeriaBrest getInstance()
+PizzeriaBrest : +Pizza creerPizza(String name)
 
 
 
